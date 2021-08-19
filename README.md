@@ -1,7 +1,7 @@
 
 Script to poll schedule in https://mymedical.iom.int and notify via Telegram when there is a new free slot.
 
-#Requirements
+# Requirements
 Make sure you've installed newman
 ```
 npm install -g newman
