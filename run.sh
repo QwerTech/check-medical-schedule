@@ -1,0 +1,1 @@
+while newman run "Medical Exam.postman_collection.json" > log || true; do sleep 60; done

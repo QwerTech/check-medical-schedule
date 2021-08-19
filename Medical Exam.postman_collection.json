@@ -1,0 +1,460 @@
+{
+	"info": {
+		"_postman_id": "53cac8b3-f8e4-4302-813f-d504ec7d6fed",
+		"name": "Medical Exam",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://mymedical.iom.int/services/mimosaTimeslots/getToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.collectionVariables.set('apitoken', pm.response.json().apitoken.token)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://mymedical.iom.int/services/mimosaTimeslots/getToken",
+					"protocol": "https",
+					"host": [
+						"mymedical",
+						"iom",
+						"int"
+					],
+					"path": [
+						"services",
+						"mimosaTimeslots",
+						"getToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://100029277.auth.konycloud.com/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.collectionVariables.set('token', pm.response.json().claims_token.value)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "100029277.auth.konycloud.com"
+					},
+					{
+						"key": "content-length",
+						"value": "0"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "x-kony-sdk-version",
+						"value": "8.4.122"
+					},
+					{
+						"key": "x-kony-app-secret",
+						"value": "3a626b0c1b106f26fcacdfa325c0390a"
+					},
+					{
+						"key": "x-kony-app-version",
+						"value": "1.0"
+					},
+					{
+						"key": "x-kony-reportingparams",
+						"value": "%7B%22os%22:%2292%22,%22dm%22:%22%22,%22did%22:%22458AC398-BBED-4294-A409-59971710153C%22,%22ua%22:%22Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/92.0.4515.131%20Safari/537.36%22,%22aid%22:%22omas%22,%22aname%22:%22omasv2%22,%22chnl%22:%22desktop%22,%22plat%22:%22windows%22,%22aver%22:%221.00.136%22,%22atype%22:%22spa%22,%22stype%22:%22b2c%22,%22kuid%22:%22%22,%22mfaid%22:%22613f825f-b22e-4132-ae9e-ee4ec44d0805%22,%22mfbaseid%22:%224761f014-6622-485f-b716-e416c25512db%22,%22mfaname%22:%22OnlineAppt%22,%22sdkversion%22:%228.4.122%22,%22sdktype%22:%22js%22,%22sessiontype%22:%22I%22,%22rsid%22:%221628589338429-316c-c05f-3d52%22,%22svcid%22:%22login_$anonymousProvider%22%7D"
+					},
+					{
+						"key": "x-kony-app-key",
+						"value": "c34b92fe22e743a76e6486876e3215b9"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36"
+					},
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "x-kony-platform-type",
+						"value": "windows"
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "x-kony-sdk-type",
+						"value": "js"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\""
+					},
+					{
+						"key": "origin",
+						"value": "https://mymedical.iom.int"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "cross-site"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://mymedical.iom.int/"
+					},
+					{
+						"key": "accept-language",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					}
+				],
+				"url": {
+					"raw": "https://100029277.auth.konycloud.com/login",
+					"protocol": "https",
+					"host": [
+						"100029277",
+						"auth",
+						"konycloud",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://mymedical.iom.int/services/mimosaTimeslots/retrieveSchedule",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var template = `\r",
+							"    <p> Total: {{data.length}}\r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>Date</th>\r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each data}}\r",
+							"            <tr>\r",
+							"                <td>{{ScheduleDate}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"\r",
+							"    \r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>Date</th>                        \r",
+							"            <th>TimeFrom</th>            \r",
+							"            <th>TimeTo</th>\r",
+							"\r",
+							"            <th>DailySlotsLimit</th>                \r",
+							"            <th>totalSlotsTaken</th>            \r",
+							"            <th>RemainingSlots</th>          \r",
+							"    \r",
+							"            <th>SlotsTaken</th>            \r",
+							"            <th>TimeSlotLimit</th>                   \r",
+							"            <th>timeSlotRemain</th>   \r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each jsonData as | jsData |}}\r",
+							"            {{#each noLunchScheduleDetails}}\r",
+							"                <tr>\r",
+							"                    <td>{{jsData.ScheduleDate}}</td>                    \r",
+							"                    <td>{{TimeFrom}}</td>\r",
+							"                    <td>{{TimeTo}}</td>\r",
+							"\r",
+							"                    <td>{{DailySlotsLimit}}</td>\r",
+							"                    <td>{{jsData.totalSlotsTaken}}</td>\r",
+							"                    <td {{#if  jsData.remainSlots}}bgcolor=\"green\"{{/if}}>{{jsData.remainSlots}}</td>\r",
+							"                    \r",
+							"                    <td>{{SlotsTaken}}</td>\r",
+							"                    <td>{{TimeSlotLimit}}</td>\r",
+							"                    <td {{#if  anyTimeSlotRemain}}bgcolor=\"green\"{{/if}}>{{timeSlotRemain}}</td>\r",
+							"\r",
+							"                </tr>            \r",
+							"            {{/each}}\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"if(pm.response.code!=200)\r",
+							"    return;\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"var jsonData = jsonData.availableTimeSlots;\r",
+							"jsonData.forEach(a=>{\r",
+							"    a.ScheduleDetails\r",
+							"        .forEach(d=>{\r",
+							"            d.timeSlotRemain = d.TimeSlotLimit - d.SlotsTaken;\r",
+							"            d.anyTimeSlotRemain = d.timeSlotRemain>0;\r",
+							"        });\r",
+							"    });\r",
+							"jsonData\r",
+							"    .map(a=>_.extend(a,{ScheduleDate: a.ScheduleDate,year: a.ScheduleDate.substr(0,4),month: a.ScheduleDate.substr(4,2)-1, day: a.ScheduleDate.substr(6,2)}))\r",
+							"\r",
+							"    .map(a=>_.extend(a, {noLunchScheduleDetails:a.ScheduleDetails.filter(d=>d.TimeFrom!=\"00:00\" && d.TimeFrom!=\"12:00\")}))\r",
+							"\r",
+							"    .map(a=>_.extend(a, {\r",
+							"        DailySlotsLimit: +a.ScheduleDetails[0].DailySlotsLimit,  \r",
+							"        ScheduleDate: a.ScheduleDate, \r",
+							"        date: new Date(a.year, a.month, a.day), \r",
+							"        availableSlots: a.noLunchScheduleDetails.filter(d=>d.timeSlotRemain>=2), \r",
+							"        totalSlotsTaken: a.ScheduleDetails.reduce((acc, val) => acc + +val.SlotsTaken, 0)\r",
+							"        }))\r",
+							"\r",
+							"    .map(a=>_.extend(a, { remainSlots: a.DailySlotsLimit - a.totalSlotsTaken}))\r",
+							";\r",
+							"const today = new Date()\r",
+							"const tomorrow = new Date(today)\r",
+							"tomorrow.setDate(tomorrow.getDate() + 1)\r",
+							"tomorrow.setHours(0,0,0,0)\r",
+							"var data = jsonData\r",
+							".filter(a=>a.availableSlots.length)\r",
+							".filter(a=>a.date<new Date(2021,08,15) && a.data>=tomorrow);\r",
+							"console.log(jsonData)\r",
+							"\r",
+							"pm.visualizer.set(template, {\r",
+							"    data: data,\r",
+							"    jsonData: jsonData\r",
+							"});\r",
+							"\r",
+							"pm.test(\"There is slots\", function () {\r",
+							"    pm.expect(data).to.have.lengthOf.above(0)\r",
+							"});\r",
+							"\r",
+							"var botId = pm.collectionVariables.get('botId');\r",
+							"var chatId = pm.collectionVariables.get('chatId');\r",
+							"\r",
+							"\r",
+							"function sentTgMessage(text){\r",
+							"    const deleteItem = {\r",
+							"    url: `https://api.telegram.org/bot${botId}/sendMessage?chat_id=${chatId}&text=${text}!`,\r",
+							"    method: 'POST',\r",
+							"    };\r",
+							"    pm.sendRequest(deleteItem, (error, response) => {\r",
+							"    console.log(error ? error : response.json());\r",
+							"});\r",
+							"}\r",
+							"if(data.length>0){\r",
+							"    sentTgMessage(JSON.stringify(data,null, 2));\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "mymedical.iom.int"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\""
+					},
+					{
+						"key": "x-kony-reportingparams",
+						"value": "%7B%22os%22:%2292%22,%22dm%22:%22%22,%22did%22:%22458AC398-BBED-4294-A409-59971710153C%22,%22ua%22:%22Mozilla/5.0%20(Windows%20NT%2010.0;%20Win64;%20x64)%20AppleWebKit/537.36%20(KHTML,%20like%20Gecko)%20Chrome/92.0.4515.131%20Safari/537.36%22,%22aid%22:%22omas%22,%22aname%22:%22omasv2%22,%22chnl%22:%22desktop%22,%22plat%22:%22windows%22,%22aver%22:%221.00.136%22,%22atype%22:%22spa%22,%22stype%22:%22b2c%22,%22kuid%22:%22%22,%22mfaid%22:%22613f825f-b22e-4132-ae9e-ee4ec44d0805%22,%22mfbaseid%22:%224761f014-6622-485f-b716-e416c25512db%22,%22mfaname%22:%22OnlineAppt%22,%22sdkversion%22:%228.4.122%22,%22sdktype%22:%22js%22,%22fid%22:%22frmMedicalApptSchedule%22,%22sessiontype%22:%22I%22,%22rsid%22:%221628581934808-7ebe-1148-e7d5%22,%22svcid%22:%22retrieveSchedule%22%7D"
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer {{apitoken}}"
+					},
+					{
+						"key": "x-kony-deviceid",
+						"value": "458AC398-BBED-4294-A409-59971710153C"
+					},
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36"
+					},
+					{
+						"key": "x-kony-authorization",
+						"value": "{{token}}"
+					},
+					{
+						"key": "x-kony-api-version",
+						"value": "1.0"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "origin",
+						"value": "https://mymedical.iom.int"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://mymedical.iom.int/apps/omas/"
+					},
+					{
+						"key": "accept-language",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "cookie",
+						"value": "cacheid=21a04b8f-9c7d-4c06-8897-fa17faf9dfab; JSESSIONID=F239299CC51EAFC4942210953F60D4D9; tmr_lvid=b64a7673032a9a5bc49aad1e5c98a42c; tmr_lvidTS=1628497660017; _ym_uid=1628497660907742490; _ym_d=1628497660; tmr_reqNum=5; _ga=GA1.2.1732702149.1628500919; _gid=GA1.2.148802534.1628500919; AWSELB=051F3D8112E2A6E7FC6396A48FF418B8A4280AC95758749768BD7B5B61E700C8AC2365E63C7AADFB1076556F24E15615C06CCCBE53273EC22F6E4D6B635BD7D357570CA527; AWSELBCORS=051F3D8112E2A6E7FC6396A48FF418B8A4280AC95758749768BD7B5B61E700C8AC2365E63C7AADFB1076556F24E15615C06CCCBE53273EC22F6E4D6B635BD7D357570CA527"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "panelSiteCode",
+							"value": "PSRU101800002",
+							"type": "text"
+						},
+						{
+							"key": "functionalArea",
+							"value": "HA",
+							"type": "text"
+						},
+						{
+							"key": "newApptBaseDate",
+							"value": "13-Aug-2021",
+							"type": "text"
+						},
+						{
+							"key": "apptEndDate",
+							"value": "10-Dec-2021",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://mymedical.iom.int/services/mimosaTimeslots/retrieveSchedule",
+					"protocol": "https",
+					"host": [
+						"mymedical",
+						"iom",
+						"int"
+					],
+					"path": [
+						"services",
+						"mimosaTimeslots",
+						"retrieveSchedule"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "apitoken",
+			"value": ""
+		},
+		{
+			"key": "botId",
+			"value": ""
+		},
+		{
+			"key": "chatId",
+			"value": ""
+		}
+	]
+}
